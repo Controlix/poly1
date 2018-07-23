@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-styles/default-theme.html">
 
 <dom-module id="poly1-page1">
     <template>
@@ -9,9 +10,18 @@
 
                 padding: 16px;
             }
+            paper-button.indigo {
+                background-color: var(--paper-indigo-500);
+                color: white;
+                --paper-button-raised-keyboard-focus: {
+                    background-color: var(--paper-pink-a200) !important;
+                    color: white !important;
+                };
+            }
         </style>
 
         <h1>Page 1</h1>
+        <paper-button raised class="indigo">Press me</paper-button>
     </template>
 
     <script>
