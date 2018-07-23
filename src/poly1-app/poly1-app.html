@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../pages/poly1-page1.html">
+
+<dom-module id="poly1-app">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <h2>Hello [[name]]!</h2>
+        <poly1-page1></poly1-page1>
+    </template>
+
+    <script>
+        class Poly1App extends Polymer.Element {
+            static get is() {
+                return 'poly1-app';
+            }
+
+            static get properties() {
+                return {
+                    name: {
+                        type: String,
+                        value: 'poly1-app'
+                    }
+                };
+            }
+        }
+
+        window.customElements.define(Poly1App.is, Poly1App);
+    </script>
+</dom-module>
