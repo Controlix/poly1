@@ -3,7 +3,6 @@
 <link rel="import" href="../../bower_components/app-route/app-route.html">
 <link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../pages/poly1-page1.html">
-<link rel="import" href="../pages/poly1-page2.html">
 
 <dom-module id="poly1-app">
     <template>
@@ -22,8 +21,13 @@
 
         <h2>Hello [[name]]!</h2>
         <iron-pages selected="[[page]]" attr-for-selected="page-name" fallback-selection="page1">
-            <poly1-page1 page-name="page1"></poly1-page1>
-            <poly1-page2 page-name="page2"></poly1-page2>
+            <poly1-page1 page-name="page1" dest="page2">
+                <h1>Hello, this is Page 1</h1>
+            </poly1-page1>
+            <poly1-page1 page-name="page2" dest="page1">
+                <h1>Welcome</h1>
+                <h2>You are now at Page 2</h2>
+            </poly1-page1>
         </iron-pages>
     </template>
 
