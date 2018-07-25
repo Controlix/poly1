@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-styles/default-theme.html">
 
-<dom-module id="poly1-page1">
+<dom-module id="poly1-page2">
     <template>
         <style>
             :host {
@@ -20,16 +20,16 @@
             }
         </style>
 
-        <h1>Page 1</h1>
-        <a href="page2" tabindex="-1">
+        <h1>Page 2</h1>
+        <a href="page1" tabindex="-1">
             <paper-button raised class="indigo">Press me</paper-button>
         </a>
     </template>
 
     <script>
-        class Poly1Page1 extends Polymer.Element {
-            static get is() { return 'poly1-page1'; }
+        class Poly1Page2 extends Polymer.Element {
+            static get is() { return 'poly1-page2'; }
         }
-        window.customElements.define(Poly1Page1.is, Poly1Page1);
+        window.customElements.define(Poly1Page2.is, Poly1Page2);
     </script>
 </dom-module>

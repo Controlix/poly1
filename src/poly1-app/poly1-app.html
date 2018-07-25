@@ -1,5 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../pages/poly1-page1.html">
+<link rel="import" href="../pages/poly1-page2.html">
 
 <dom-module id="poly1-app">
     <template>
@@ -8,8 +12,19 @@
                 display: block;
             }
         </style>
+
+        <app-location route="{{route}}"></app-location>
+        <app-route
+                route="{{route}}"
+                pattern="/:page"
+                data="{{routeData}}"
+                tail="{{subroute}}"></app-route>
+
         <h2>Hello [[name]]!</h2>
-        <poly1-page1></poly1-page1>
+        <iron-pages selected="[[page]]" attr-for-selected="page-name" fallback-selection="page1">
+            <poly1-page1 page-name="page1"></poly1-page1>
+            <poly1-page2 page-name="page2"></poly1-page2>
+        </iron-pages>
     </template>
 
     <script>
@@ -23,8 +38,26 @@
                     name: {
                         type: String,
                         value: 'poly1-app'
+                    },
+                    page: {
+                        type: String,
+                        reflectToAttribute: true,
+                        observer: '_pageChanged'
                     }
                 };
+            }
+
+            static get observers() { return [
+                '_routePageChanged(routeData.page)'
+            ]}
+
+            _routePageChanged(page) {
+                console.log('_routePageChanged', page);
+                this.page = page;
+            }
+
+            _pageChanged(page, oldPage) {
+                console.log('_pagechanged', page, oldPage);
             }
         }
 
